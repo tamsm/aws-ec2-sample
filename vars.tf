@@ -14,13 +14,12 @@ variable "shared_credentials_file" {
 variable "profile" {
   description = "The shared credentials configured IAM user profile"
 }
+variable "aws_region" {
+  description = "The AWS region to deploy resources in."
+}
 variable "public_key" {
   default = "~/.ssh/id_rsa.pub"
   description = "The shared credentials configured IAM user profile"
-}
-variable "aws_region" {
-  default     = "eu-west-3"
-  description = "The AWS region to deploy resources in."
 }
 variable "cird_range" {
   default     = "10.0.0.0/16"

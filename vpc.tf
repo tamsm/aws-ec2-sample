@@ -50,7 +50,7 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 // NACL
-resource "aws_network_acl" "allowall" {
+resource "aws_network_acl" "nacl" {
   vpc_id = aws_vpc.main.id
   egress {
     protocol   = "-1"

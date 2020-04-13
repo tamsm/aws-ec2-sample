@@ -22,7 +22,7 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 }
-
+// ec2
 resource "aws_instance" "app_instance" {
   ami                    = data.aws_ami.ubuntu.id
   availability_zone      = element(data.aws_availability_zones.zones.names, 0)
@@ -30,4 +30,8 @@ resource "aws_instance" "app_instance" {
   key_name               = aws_key_pair.public_key.key_name
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
   instance_type          = var.instance_type
+  tags = {
+    Name = var.project
+    Env  = var.env
+  }
 }
